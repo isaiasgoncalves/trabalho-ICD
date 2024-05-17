@@ -75,7 +75,7 @@ def play(word, vidas, tentativas):
         player_status = (display_word == word)
 
         if player_status:
-            print("VOCÊ GANHOU PORRA")
+            print("VOCÊ GANHOU")
             print("A palavra era: ", word)
             break
 
