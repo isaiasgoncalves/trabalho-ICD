@@ -1,8 +1,10 @@
 ''' Jogo da Forca '''
 import random
+import os
 
-def start():
+def start(): # Função encarregada de dar a mensagem inicial para o jogador, e fazê-lo escolher a dificuldade
 
+    os.system('clear')
     msg_terminal = '''
     Bem vindo ao jogo da forca!
     Selecione seu nível de dificuldade:
@@ -24,7 +26,9 @@ def start():
     print("_____________________________________________________________________")
     return vidas
 
-def get_word():
+
+
+def get_word(): # Obtém a palavra. Essa função deve ser alterada
     words = [
     'Pedra',
     'Papel',
@@ -36,7 +40,7 @@ def get_word():
     word = random.choice(words).upper()
     return word
 
-def get_display_word(word, tentativas):
+def get_display_word(word, tentativas): # Essa fução configura a palavra oculta a ser exibida na tela (ex: "B_C___")
 
     display_word = ""
     for letter in word:
@@ -48,12 +52,12 @@ def get_display_word(word, tentativas):
     return display_word
 
 
-def msg_round(display_word, tentativas, vidas):
+def msg_round(display_word, tentativas, vidas): # Essa função cria a mensagem de cara Round
     print("Sua palavra é", display_word)
     print("Você já usou as letras", tentativas)
     print(">>>> Você possui ", vidas, "vidas. <<<<")
 
-def get_hint_letter():
+def get_hint_letter(): # Função que recebe a letra do jogador, adapta ela para ser lida
     while True:
 
         hint_letter = input("Dê uma letra: ")
@@ -66,20 +70,23 @@ def get_hint_letter():
     return hint_letter
 
 ####################################################################################################################
-def play(word, vidas, tentativas):
 
-    while True:
+def play(word, vidas, tentativas): # Aqui é como o jogo vai rodar
 
-        display_word = get_display_word(word, tentativas)
+    while True: # loop infinito dos crias
 
-        player_status = (display_word == word)
+        os.system('clear')
 
-        if player_status:
+        display_word = get_display_word(word, tentativas) 
+
+        player_status = (display_word == word) # Verifica se o jogador já ganhou ou não
+
+        if player_status:   # Mensagem se o cabra ganhar
             print("VOCÊ GANHOU")
             print("A palavra era: ", word)
             break
 
-        elif vidas > 0:
+        elif vidas > 0: # Ele não ganhou mas tem vidas
             msg_round(display_word, tentativas, vidas)
 
             hint_letter = get_hint_letter()
@@ -94,7 +101,7 @@ def play(word, vidas, tentativas):
                 tentativas.append(hint_letter)
                 vidas += -1
 
-        else:
+        else: # perdeu kkkkkkkkk
             print("PERDEU KKKKKKKKK")
             print("A palavra era: ", word)
             break
