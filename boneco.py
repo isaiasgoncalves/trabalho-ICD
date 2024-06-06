@@ -1,3 +1,4 @@
+# Estágios do bonequinho da forca em todas as dificuldades
 stages_hard = [
  """
    -----
@@ -314,7 +315,7 @@ stages_easy = [
 """
 ]
 
-def boneco_por_diff(vidas):
+def boneco_por_diff(vidas): # Associa o boneco correto a cada dificuldade
    list_boneco = []
    if vidas == 13:
       list_boneco = stages_easy

@@ -18,7 +18,7 @@ def start(): # Função encarregada de dar a mensagem inicial para o jogador, e 
      -> '''
     dificuldades = {"EASY":13, "MEDIUM":8, "HARD":5, "1":13, "2":8, "3":5}
 
-    while True:
+    while True: # Verifica a dificuldade selecionada e coloca a quantidade de vidas correspondente
         entrada = input(msg_terminal).upper()
         vidas = dificuldades.get(entrada, -1)
         if vidas < 1:
@@ -30,7 +30,7 @@ def start(): # Função encarregada de dar a mensagem inicial para o jogador, e 
     print("_____________________________________________________________________")
     return vidas
 
-def escolher_idioma():
+def escolher_idioma(): # Pede para o usuário um idioma para a palavra, caso ele não digite nada, o valor padrão será português
     idioma = input("Escolha o idioma da palavra secreta: ")
     if idioma == "":
         idioma = "Português"
@@ -95,7 +95,7 @@ def play(word, vidas, tentativas, lista_boneco , dica): # Aqui é como o jogo va
 
             hint_letter = get_hint_letter()
 
-            if hint_letter in tentativas:
+            if hint_letter in tentativas: # Verifica se o chute do usuário é uma palavra, uma letra ou inválido e faz as tarefas necessárias
                 print("-------------- Você já digitou essa letra antes. Tente novamente -----------------")
                 input("Pressione qualquer tecla para continuar ")
             elif hint_letter in word and len(hint_letter) == 1:
@@ -129,7 +129,7 @@ def play(word, vidas, tentativas, lista_boneco , dica): # Aqui é como o jogo va
                 os.system('clear')
 
 
-        else: # perdeu kkkkkkkkk
+        else: # Jogador perdeu todas as vidas
             print("PERDEU KKKKKKKKK")
             print(lista_boneco[-1])
             print("A palavra era: ", word)
