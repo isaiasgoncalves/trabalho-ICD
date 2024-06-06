@@ -11,7 +11,7 @@ def gerador_palavra(difficulty, language):
     ]
 
     # Inicializa o cliente da OpenAI
-    client = OpenAI(api_key='sk-trabalho-icd-502-7kroumK1fT54tk1YMVDaT3BlbkFJi24zD95sb2U0i1OMcxMT')
+    client = OpenAI(api_key='COLOCAR CHAVE AQUI')
 
     # Chama o modelo da OpenAI para gerar a palavra e a dica
     response = client.chat.completions.create(
