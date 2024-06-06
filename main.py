@@ -1,8 +1,18 @@
 import methods as forca
+import boneco as toy
 
+while True:
+    tentativas = []
+    vidas = forca.start()
 
-tentativas = []
-vidas = forca.start()
-word = forca.get_word()
+    idioma = forca.escolher_idioma()
+    lista_boneco = toy.boneco_por_diff(vidas)
+    word , dica = forca.get_word(vidas , idioma)
 
-forca.play(word, vidas, tentativas)
+    forca.play(word, vidas, tentativas , lista_boneco , dica)
+    escolha = input("\nVocê deseja jogar novamente?\n1.SIM\n2.NAO\n-> ")
+    if escolha == "1" or escolha.upper() == "SIM":
+        continue
+    else:
+        break
+        exit()
